@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb+srv://kaustubhs:coadtHNnsPcfM0I5@smartgym.gz4dgbm.mongodb.net/?appName=smartgym");
+    
+    const MONGO_URI = process.env.MONGO_URI;
+    await mongoose.connect(MONGO_URI);
     console.log("MongoDB Connected");
   } catch (error) {
     console.error(error);
